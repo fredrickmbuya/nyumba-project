@@ -1,0 +1,582 @@
+---
+title: "Untitled"
+author: "Fredrick Mbuya"
+date: "2023-05-22"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+
+```{r}
+data <- read.csv("data2.csv", stringsAsFactors = TRUE, na.strings = "")
+```
+
+# Libraries
+```{r}
+library(dplyr)
+library(ggplot2)
+library(ggtext)
+library(tidyverse)
+```
+
+# Q1
+```{r}
+# Assuming your data is stored in a variable called "Q1", data frame named "data"
+counts <- data %>%
+  separate_rows(Q1, sep = ";") %>%
+  group_by(Q1) %>%
+  summarise(count = n()) %>%
+  rename(SM = Q1) %>%
+  arrange(desc(count)) %>%
+  mutate(percentage = round(count / sum(count) * 100, 2))
+
+# Create a bar plot of the counts with percentages as labels
+plot <- ggplot(counts, aes(x = SM, y = count)) +
+  geom_bar(stat = "identity", fill = "steelblue") +
+  geom_text(aes(label = paste0(count, " (", percentage, "%)")), vjust = -0.5, color = "black", fontface="bold") +
+  labs(x = "Social Media", y = "Count") +
+  ggtitle("Social Media Counts") +
+  theme_classic() +
+  theme(plot.title = element_text(size = 14, face = "bold"),
+        axis.title.x = element_text(face = "bold"))
+
+# Save the plot as an image file (e.g., PNG format)
+ggsave(filename = "social_media_counts.png", plot = plot, dpi = 300)
+
+```
+
+# Q2
+```{r}
+# Assuming your data is stored in a variable called "Q1", data frame named "data"
+counts <- data %>%
+  separate_rows(Q2, sep = ";") %>%
+  group_by(Q2) %>%
+  summarise(count = n()) %>%
+  rename(SM = Q2) %>%
+  arrange(desc(count)) %>%
+  mutate(percentage = round(count / sum(count) * 100, 2))
+
+# Create a bar plot of the counts with percentages as labels
+plot <- ggplot(counts, aes(x = SM, y = count)) +
+  geom_bar(stat = "identity", fill = "steelblue") +
+  geom_text(aes(label = paste0(count, " (", percentage, "%)")), vjust = -0.5, color = "black", fontface="bold") +
+  labs(x = "Social Media", y = "Count") +
+  ggtitle("Social Media Counts") +
+  theme_classic() +
+  theme(plot.title = element_text(size = 14, face = "bold"),
+        axis.title.x = element_text(face = "bold"))
+
+# Save the plot as an image file (e.g., PNG format)
+ggsave(filename = "social_media_counts2.png", plot = plot, dpi = 300)
+
+```
+# Q3
+```{r}
+# Assuming your data is stored in a variable called "Q1", data frame named "data"
+counts <- data %>%
+  separate_rows(Q3, sep = ";") %>%
+  group_by(Q3) %>%
+  summarise(count = n()) %>%
+  rename(SM = Q3) %>%
+  arrange(desc(count)) %>%
+  mutate(percentage = round(count / sum(count) * 100, 2))
+
+# Create a bar plot of the counts with percentages as labels
+plot <- ggplot(counts, aes(x = SM, y = count)) +
+  geom_bar(stat = "identity", fill = "steelblue") +
+  geom_text(aes(label = paste0(count, " (", percentage, "%)")), vjust = -0.5, color = "black") +
+  labs(x = "Social Media", y = "Count") +
+  ggtitle("Social Media Counts") +
+  theme_classic() +
+  theme(plot.title = element_text(size = 14, face = "bold"))
+
+# Save the plot as an image file (e.g., PNG format)
+ggsave(filename = "social_media_counts3.png", plot = plot, dpi = 300)
+```
+# Q4
+```{r}
+# Assuming your data is stored in a variable called "Q1", data frame named "data"
+counts <- data %>%
+  separate_rows(Q4, sep = ";") %>%
+  group_by(Q4) %>%
+  summarise(count = n()) %>%
+  rename(SM = Q4) %>%
+  arrange(desc(count)) %>%
+  mutate(percentage = round(count / sum(count) * 100, 2))
+
+# Create a bar plot of the counts with percentages as labels
+plot <- ggplot(counts, aes(x = SM, y = count)) +
+  geom_bar(stat = "identity", fill = "steelblue") +
+  geom_text(aes(label = paste0(count, " (", percentage, "%)")), vjust = -0.5, color = "black", fontface="bold") +
+  labs(x = "Social Media", y = "Count") +
+  ggtitle("Social Media Counts") +
+  theme_classic() +
+  theme(plot.title = element_text(size = 14, face = "bold"),
+        axis.title.x = element_text(face = "bold"))
+
+# Save the plot as an image file (e.g., PNG format)
+ggsave(filename = "social_media_counts4.png", plot = plot, dpi = 300)
+```
+# Q5
+```{r}
+# Assuming your data is stored in a variable called "Q1", data frame named "data"
+counts <- data %>%
+  separate_rows(Q5, sep = ";") %>%
+  group_by(Q5) %>%
+  summarise(count = n()) %>%
+  rename(SM = Q5) %>%
+  arrange(desc(count)) %>%
+  mutate(percentage = round(count / sum(count) * 100, 2))
+
+# Create a bar plot of the counts with percentages as labels
+plot <- ggplot(counts, aes(x = SM, y = count)) +
+  geom_bar(stat = "identity", fill = "steelblue") +
+  geom_text(aes(label = paste0(count, " (", percentage, "%)")), vjust = -0.5, color = "black") +
+  labs(x = "Social Media", y = "Count") +
+  ggtitle("Social Media Counts") +
+  theme_classic() +
+  theme(plot.title = element_text(size = 14, face = "bold"))
+
+# Save the plot as an image file (e.g., PNG format)
+ggsave(filename = "social_media_counts5.png", plot = plot, dpi = 300)
+```
+# Q6
+```{r}
+# Assuming your data is stored in a variable called "Q1", data frame named "data"
+counts <- data %>%
+  separate_rows(Q6, sep = ";") %>%
+  group_by(Q6) %>%
+  summarise(count = n()) %>%
+  rename(SM = Q6) %>%
+  arrange(desc(count)) %>%
+  mutate(percentage = round(count / sum(count) * 100, 2))
+
+# Create a bar plot of the counts with percentages as labels
+plot <- ggplot(counts, aes(x = SM, y = count)) +
+  geom_bar(stat = "identity", fill = "steelblue") +
+  geom_text(aes(label = paste0(count, " (", percentage, "%)")), vjust = -0.5, color = "black") +
+  labs(x = "Social Media", y = "Count") +
+  ggtitle("Social Media Counts") +
+  theme_classic() +
+  theme(plot.title = element_text(size = 14, face = "bold"))
+
+# Save the plot as an image file (e.g., PNG format)
+ggsave(filename = "social_media_counts6.png", plot = plot, dpi = 300)
+```
+# Q7
+```{r}
+# Assuming your data is stored in a variable called "Q1", data frame named "data"
+counts <- data %>%
+  separate_rows(Q7, sep = ";") %>%
+  group_by(Q7) %>%
+  summarise(count = n()) %>%
+  rename(SM = Q7) %>%
+  arrange(desc(count)) %>%
+  mutate(percentage = round(count / sum(count) * 100, 2))
+
+# Create a bar plot of the counts with percentages as labels
+plot <- ggplot(counts, aes(x = SM, y = count)) +
+  geom_bar(stat = "identity", fill = "steelblue") +
+  geom_text(aes(label = paste0(count, " (", percentage, "%)")), vjust = -0.5, color = "black", fontface="bold") +
+  labs(x = "Social Media", y = "Count") +
+  ggtitle("Social Media Counts") +
+  theme_classic() +
+  theme(plot.title = element_text(size = 14, face = "bold"),
+        axis.title.x = element_text(face = "bold"))
+
+# Save the plot as an image file (e.g., PNG format)
+ggsave(filename = "social_media_counts7.png", plot = plot, dpi = 300)
+```
+#Q8A
+```{r}
+# Assuming your data is stored in a variable called "Q1", data frame named "data"
+counts <- data %>%
+  separate_rows(Q8Foreign.language, sep = ";") %>%
+  group_by(Q8Foreign.language) %>%
+  summarise(count = n()) %>%
+  rename(SM = Q8Foreign.language) %>%
+  arrange(desc(count)) %>%
+  mutate(percentage = round(count / sum(count) * 100, 2))
+
+# Create a bar plot of the counts with percentages as labels
+plot <- ggplot(counts, aes(x = SM, y = count)) +
+  geom_bar(stat = "identity", fill = "steelblue") +
+  geom_text(aes(label = paste0(count, " (", percentage, "%)")), vjust = -0.5, color = "black", fontface="bold") +
+  labs(x = "Social Media", y = "Count") +
+  ggtitle("Social Media Counts") +
+  theme_classic() +
+  theme(plot.title = element_text(size = 14, face = "bold"),
+        axis.title.x = element_text(face = "bold"))
+
+# Save the plot as an image file (e.g., PNG format)
+ggsave(filename = "social_media_counts8A.png", plot = plot, dpi = 300)
+```
+#Q8B
+```{r}
+# Assuming your data is stored in a variable called "Q1", data frame named "data"
+counts <- data %>%
+  separate_rows(Q8Social.sciences, sep = ";") %>%
+  group_by(Q8Social.sciences) %>%
+  summarise(count = n()) %>%
+  rename(SM = Q8Social.sciences) %>%
+  arrange(desc(count)) %>%
+  mutate(percentage = round(count / sum(count) * 100, 2))
+
+# Create a bar plot of the counts with percentages as labels
+plot <- ggplot(counts, aes(x = SM, y = count)) +
+  geom_bar(stat = "identity", fill = "steelblue") +
+  geom_text(aes(label = paste0(count, " (", percentage, "%)")), vjust = -0.5, color = "black", fontface="bold") +
+  labs(x = "Social Media", y = "Count") +
+  ggtitle("Social Media Counts") +
+  theme_classic() +
+  theme(plot.title = element_text(size = 14, face = "bold"),
+        axis.title.x = element_text(face = "bold"))
+
+# Save the plot as an image file (e.g., PNG format)
+ggsave(filename = "social_media_counts8B.png", plot = plot, dpi = 300)
+```
+#Q8C
+```{r}
+# Assuming your data is stored in a variable called "Q1", data frame named "data"
+counts <- data %>%
+  separate_rows(Q8Computer.science, sep = ";") %>%
+  group_by(Q8Computer.science) %>%
+  summarise(count = n()) %>%
+  rename(SM = Q8Computer.science) %>%
+  arrange(desc(count)) %>%
+  mutate(percentage = round(count / sum(count) * 100, 2))
+
+# Create a bar plot of the counts with percentages as labels
+plot <- ggplot(counts, aes(x = SM, y = count)) +
+  geom_bar(stat = "identity", fill = "steelblue") +
+  geom_text(aes(label = paste0(count, " (", percentage, "%)")), vjust = -0.5, color = "black", fontface="bold") +
+  labs(x = "Social Media", y = "Count") +
+  ggtitle("Social Media Counts") +
+  theme_classic() +
+  theme(plot.title = element_text(size = 14, face = "bold"),
+        axis.title.x = element_text(face = "bold"))
+
+# Save the plot as an image file (e.g., PNG format)
+ggsave(filename = "social_media_counts8C.png", plot = plot, dpi = 300)
+```
+
+#Q8D
+```{r}
+# Assuming your data is stored in a variable called "Q1", data frame named "data"
+counts <- data %>%
+  separate_rows(Q8Natural.sciences, sep = ";") %>%
+  group_by(Q8Natural.sciences) %>%
+  summarise(count = n()) %>%
+  rename(SM = Q8Natural.sciences) %>%
+  arrange(desc(count)) %>%
+  mutate(percentage = round(count / sum(count) * 100, 2))
+
+# Create a bar plot of the counts with percentages as labels
+plot <- ggplot(counts, aes(x = SM, y = count)) +
+  geom_bar(stat = "identity", fill = "steelblue") +
+  geom_text(aes(label = paste0(count, " (", percentage, "%)")), vjust = -0.5, color = "black", fontface="bold") +
+  labs(x = "Social Media", y = "Count") +
+  ggtitle("Social Media Counts") +
+  theme_classic() +
+  theme(plot.title = element_text(size = 14, face = "bold"),
+        axis.title.x = element_text(face = "bold"))
+
+# Save the plot as an image file (e.g., PNG format)
+ggsave(filename = "social_media_counts8D.png", plot = plot, dpi = 300)
+```
+#Q8E
+```{r}
+# Assuming your data is stored in a variable called "Q1", data frame named "data"
+counts <- data %>%
+  separate_rows(Q8Humanities, sep = ";") %>%
+  group_by(Q8Humanities) %>%
+  summarise(count = n()) %>%
+  rename(SM = Q8Humanities) %>%
+  arrange(desc(count)) %>%
+  mutate(percentage = round(count / sum(count) * 100, 2))
+
+# Create a bar plot of the counts with percentages as labels
+plot <- ggplot(counts, aes(x = SM, y = count)) +
+  geom_bar(stat = "identity", fill = "steelblue") +
+  geom_text(aes(label = paste0(count, " (", percentage, "%)")), vjust = -0.5, color = "black", fontface="bold") +
+  labs(x = "Social Media", y = "Count") +
+  ggtitle("Social Media Counts") +
+  theme_classic() +
+  theme(plot.title = element_text(size = 14, face = "bold"),
+        axis.title.x = element_text(face = "bold"))
+
+# Save the plot as an image file (e.g., PNG format)
+ggsave(filename = "social_media_counts8E.png", plot = plot, dpi = 300)
+```
+#Q8F
+```{r}
+# Assuming your data is stored in a variable called "Q1", data frame named "data"
+counts <- data %>%
+  separate_rows(Q8Business, sep = ";") %>%
+  group_by(Q8Business) %>%
+  summarise(count = n()) %>%
+  rename(SM = Q8Business) %>%
+  arrange(desc(count)) %>%
+  mutate(percentage = round(count / sum(count) * 100, 2))
+
+# Create a bar plot of the counts with percentages as labels
+plot <- ggplot(counts, aes(x = SM, y = count)) +
+  geom_bar(stat = "identity", fill = "steelblue") +
+  geom_text(aes(label = paste0(count, " (", percentage, "%)")), vjust = -0.5, color = "black", fontface="bold") +
+  labs(x = "Social Media", y = "Count") +
+  ggtitle("Social Media Counts") +
+  theme_classic() +
+  theme(plot.title = element_text(size = 14, face = "bold"),
+        axis.title.x = element_text(face = "bold"))
+
+# Save the plot as an image file (e.g., PNG format)
+ggsave(filename = "social_media_counts8F.png", plot = plot, dpi = 300)
+```
+#Q9A
+```{r}
+# Assuming your data is stored in a variable called "Q1", data frame named "data"
+counts <- data %>%
+  separate_rows(Q9databundles, sep = ";") %>%
+  group_by(Q9databundles) %>%
+  summarise(count = n()) %>%
+  rename(SM = Q9databundles) %>%
+  arrange(desc(count)) %>%
+  mutate(percentage = round(count / sum(count) * 100, 2))
+
+# Create a bar plot of the counts with percentages as labels
+plot <- ggplot(counts, aes(x = SM, y = count)) +
+  geom_bar(stat = "identity", fill = "steelblue") +
+  geom_text(aes(label = paste0(count, " (", percentage, "%)")), vjust = -0.5, color = "black", fontface="bold") +
+  labs(x = "Social Media", y = "Count") +
+  ggtitle("Social Media Counts") +
+  theme_classic() +
+  theme(plot.title = element_text(size = 14, face = "bold"),
+        axis.title.x = element_text(face = "bold"))
+
+# Save the plot as an image file (e.g., PNG format)
+ggsave(filename = "social_media_counts9A.png", plot = plot, dpi = 300)
+```
+
+#Q9B
+```{r}
+# Assuming your data is stored in a variable called "Q1", data frame named "data"
+counts <- data %>%
+  separate_rows(Q9smartphones, sep = ";") %>%
+  group_by(Q9smartphones) %>%
+  summarise(count = n()) %>%
+  rename(SM = Q9smartphones) %>%
+  arrange(desc(count)) %>%
+  mutate(percentage = round(count / sum(count) * 100, 2))
+
+# Create a bar plot of the counts with percentages as labels
+plot <- ggplot(counts, aes(x = SM, y = count)) +
+  geom_bar(stat = "identity", fill = "steelblue") +
+  geom_text(aes(label = paste0(count, " (", percentage, "%)")), vjust = -0.5, color = "black", fontface="bold") +
+  labs(x = "Social Media", y = "Count") +
+  ggtitle("Social Media Counts") +
+  theme_classic() +
+  theme(plot.title = element_text(size = 14, face = "bold"),
+        axis.title.x = element_text(face = "bold"))
+
+# Save the plot as an image file (e.g., PNG format)
+ggsave(filename = "social_media_counts9B.png", plot = plot, dpi = 300)
+```
+#Q9C
+```{r}
+# Assuming your data is stored in a variable called "Q1", data frame named "data"
+counts <- data %>%
+  separate_rows(Q9connectivity, sep = ";") %>%
+  group_by(Q9connectivity) %>%
+  summarise(count = n()) %>%
+  rename(SM = Q9connectivity) %>%
+  arrange(desc(count)) %>%
+  mutate(percentage = round(count / sum(count) * 100, 2))
+
+# Create a bar plot of the counts with percentages as labels
+plot <- ggplot(counts, aes(x = SM, y = count)) +
+  geom_bar(stat = "identity", fill = "steelblue") +
+  geom_text(aes(label = paste0(count, " (", percentage, "%)")), vjust = -0.5, color = "black", fontface="bold") +
+  labs(x = "Social Media", y = "Count") +
+  ggtitle("Social Media Counts") +
+  theme_classic() +
+  theme(plot.title = element_text(size = 14, face = "bold"),
+        axis.title.x = element_text(face = "bold"))
+
+# Save the plot as an image file (e.g., PNG format)
+ggsave(filename = "social_media_counts9C.png", plot = plot, dpi = 300)
+```
+#Q9D
+```{r}
+# Assuming your data is stored in a variable called "Q1", data frame named "data"
+counts <- data %>%
+  separate_rows(Q9literacy, sep = ";") %>%
+  group_by(Q9literacy) %>%
+  summarise(count = n()) %>%
+  rename(SM = Q9literacy) %>%
+  arrange(desc(count)) %>%
+  mutate(percentage = round(count / sum(count) * 100, 2))
+
+# Create a bar plot of the counts with percentages as labels
+plot <- ggplot(counts, aes(x = SM, y = count)) +
+  geom_bar(stat = "identity", fill = "steelblue") +
+  geom_text(aes(label = paste0(count, " (", percentage, "%)")), vjust = -0.5, color = "black", fontface="bold") +
+  labs(x = "Social Media", y = "Count") +
+  ggtitle("Social Media Counts") +
+  theme_classic() +
+  theme(plot.title = element_text(size = 14, face = "bold"),
+        axis.title.x = element_text(face = "bold"))
+
+# Save the plot as an image file (e.g., PNG format)
+ggsave(filename = "social_media_counts9D.png", plot = plot, dpi = 300)
+```
+#Q9E
+```{r}
+# Assuming your data is stored in a variable called "Q1", data frame named "data"
+counts <- data %>%
+  separate_rows(Q9awareness, sep = ";") %>%
+  group_by(Q9awareness) %>%
+  summarise(count = n()) %>%
+  rename(SM = Q9awareness) %>%
+  arrange(desc(count)) %>%
+  mutate(percentage = round(count / sum(count) * 100, 2))
+
+# Create a bar plot of the counts with percentages as labels
+plot <- ggplot(counts, aes(x = SM, y = count)) +
+  geom_bar(stat = "identity", fill = "steelblue") +
+  geom_text(aes(label = paste0(count, " (", percentage, "%)")), vjust = -0.5, color = "black", fontface="bold") +
+  labs(x = "Social Media", y = "Count") +
+  ggtitle("Social Media Counts") +
+  theme_classic() +
+  theme(plot.title = element_text(size = 14, face = "bold"),
+        axis.title.x = element_text(face = "bold"))
+
+# Save the plot as an image file (e.g., PNG format)
+ggsave(filename = "social_media_counts9E.png", plot = plot, dpi = 300)
+```
+#Q9F
+```{r}
+# Assuming your data is stored in a variable called "Q1", data frame named "data"
+counts <- data %>%
+  separate_rows(Q9unwillingness, sep = ";") %>%
+  group_by(Q9unwillingness) %>%
+  summarise(count = n()) %>%
+  rename(SM = Q9unwillingness) %>%
+  arrange(desc(count)) %>%
+  mutate(percentage = round(count / sum(count) * 100, 2))
+
+# Create a bar plot of the counts with percentages as labels
+plot <- ggplot(counts, aes(x = SM, y = count)) +
+  geom_bar(stat = "identity", fill = "steelblue") +
+  geom_text(aes(label = paste0(count, " (", percentage, "%)")), vjust = -0.5, color = "black", fontface="bold") +
+  labs(x = "Social Media", y = "Count") +
+  ggtitle("Social Media Counts") +
+  theme_classic() +
+  theme(plot.title = element_text(size = 14, face = "bold"),
+        axis.title.x = element_text(face = "bold"))
+
+# Save the plot as an image file (e.g., PNG format)
+ggsave(filename = "social_media_counts9F.png", plot = plot, dpi = 300)
+```
+#Q9G
+```{r}
+# Assuming your data is stored in a variable called "Q1", data frame named "data"
+counts <- data %>%
+  separate_rows(Q9PoorKnowledge, sep = ";") %>%
+  group_by(Q9PoorKnowledge) %>%
+  summarise(count = n()) %>%
+  rename(SM = Q9PoorKnowledge) %>%
+  arrange(desc(count)) %>%
+  mutate(percentage = round(count / sum(count) * 100, 2))
+
+# Create a bar plot of the counts with percentages as labels
+plot <- ggplot(counts, aes(x = SM, y = count)) +
+  geom_bar(stat = "identity", fill = "steelblue") +
+  geom_text(aes(label = paste0(count, " (", percentage, "%)")), vjust = -0.5, color = "black", fontface="bold") +
+  labs(x = "Social Media", y = "Count") +
+  ggtitle("Social Media Counts") +
+  theme_classic() +
+  theme(plot.title = element_text(size = 14, face = "bold"),
+        axis.title.x = element_text(face = "bold"))
+
+# Save the plot as an image file (e.g., PNG format)
+ggsave(filename = "social_media_counts9G.png", plot = plot, dpi = 300)
+```
+
+
+
+#Programme
+```{r}
+# Assuming your data is stored in a variable called "Q1", data frame named "data"
+counts <- data %>%
+  separate_rows(Programme, sep = ";") %>%
+  group_by(Programme) %>%
+  summarise(count = n()) %>%
+  rename(SM = Programme) %>%
+  arrange(desc(count)) %>%
+  mutate(percentage = round(count / sum(count) * 100, 2))
+
+# Create a bar plot of the counts with percentages as labels
+plot <- ggplot(counts, aes(x = SM, y = count)) +
+  geom_bar(stat = "identity", fill = "steelblue") +
+  geom_text(aes(label = paste0(count, " (", percentage, "%)")), vjust = -0.5, color = "black", fontface="bold") +
+  labs(x = "Social Media", y = "Count") +
+  ggtitle("Social Media Counts") +
+  theme_classic() +
+  theme(plot.title = element_text(size = 14, face = "bold"),
+        axis.title.x = element_text(face = "bold"))
+
+# Save the plot as an image file (e.g., PNG format)
+ggsave(filename = "social_media_countsProgramme.png", plot = plot, dpi = 300)
+```
+# Sex
+```{r}
+# Assuming your data is stored in a variable called "Q1", data frame named "data"
+counts <- data %>%
+  separate_rows(Sex, sep = ";") %>%
+  group_by(Sex) %>%
+  summarise(count = n()) %>%
+  rename(SM = Sex) %>%
+  arrange(desc(count)) %>%
+  mutate(percentage = round(count / sum(count) * 100, 2))
+
+# Create a bar plot of the counts with percentages as labels
+plot <- ggplot(counts, aes(x = SM, y = count)) +
+  geom_bar(stat = "identity", fill = "steelblue") +
+  geom_text(aes(label = paste0(count, " (", percentage, "%)")), vjust = -0.5, color = "black", fontface="bold") +
+  labs(x = "Social Media", y = "Count") +
+  ggtitle("Social Media Counts") +
+  theme_classic() +
+  theme(plot.title = element_text(size = 14, face = "bold"),
+        axis.title.x = element_text(face = "bold"))
+
+# Save the plot as an image file (e.g., PNG format)
+ggsave(filename = "social_media_countsSex.png", plot = plot, dpi = 300)
+```
+# Age
+```{r}
+# Assuming your data is stored in a variable called "Q1", data frame named "data"
+counts <- data %>%
+  separate_rows(Age, sep = ";") %>%
+  group_by(Age) %>%
+  summarise(count = n()) %>%
+  rename(SM = Age) %>%
+  arrange(desc(count)) %>%
+  mutate(percentage = round(count / sum(count) * 100, 2))
+
+# Create a bar plot of the counts with percentages as labels
+plot <- ggplot(counts, aes(x = SM, y = count)) +
+  geom_bar(stat = "identity", fill = "steelblue") +
+  geom_text(aes(label = paste0(count, " (", percentage, "%)")), vjust = -0.5, color = "black", fontface="bold") +
+  labs(x = "Social Media", y = "Count") +
+  ggtitle("Social Media Counts") +
+  theme_classic() +
+  theme(plot.title = element_text(size = 14, face = "bold"),
+        axis.title.x = element_text(face = "bold"))
+
+# Save the plot as an image file (e.g., PNG format)
+ggsave(filename = "social_media_countsAge.png", plot = plot, dpi = 300)
+```
+
